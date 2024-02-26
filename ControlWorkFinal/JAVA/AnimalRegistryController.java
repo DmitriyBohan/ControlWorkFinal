@@ -228,6 +228,17 @@ public class AnimalRegistryController {
         System.out.println("Общее количество животных: " + animalRegistryModel.getTotalCount());
     }
 
+    private void removeAnimal(Scanner scanner) {
+        System.out.print("Введите имя животного, которое вы хотите удалить: ");
+        String nameToRemove = scanner.nextLine();
+
+        if (animalRegistryModel.removeAnimalByName(nameToRemove)) {
+            System.out.println("Животное " + nameToRemove + " успешно удалено.");
+        } else {
+            System.out.println("Животное с именем " + nameToRemove + " не найдено.");
+        }
+    }
+
     private void loadFromFile() {
         animalRegistryModel.loadFromFile("animal_registry.json");
     }

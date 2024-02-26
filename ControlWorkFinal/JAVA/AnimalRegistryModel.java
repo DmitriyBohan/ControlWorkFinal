@@ -65,6 +65,17 @@ public class AnimalRegistryModel {
         }
         return animalsByBirthDate;
     }
+
+    public boolean removeAnimalByName(String name) {
+        Animal animalToRemove = findAnimalByName(name);
+        if (animalToRemove != null) {
+            animals.remove(animalToRemove);
+            saveToFile("animal_registry.json");
+            return true;
+        }
+        return false;
+    }
+
     public List<Animal> getAllAnimals() {
         return new ArrayList<>(animals);
     }
