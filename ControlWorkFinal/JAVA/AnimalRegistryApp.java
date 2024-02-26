@@ -1,4 +1,4 @@
 package ControlWorkFinal.JAVA;
 
-public class main {
+public class AnimalRegistryApp {
 }
