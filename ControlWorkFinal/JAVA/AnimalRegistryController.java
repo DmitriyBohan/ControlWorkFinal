@@ -55,4 +55,11 @@ public class AnimalRegistryController {
 
         } while (choice != 0);
     }
+    private void loadFromFile() {
+        animalRegistryModel.loadFromFile("animal_registry.json");
+    }
+
+    private void saveToFile() {
+        animalRegistryModel.saveToFile("animal_registry.json");
+    }
 }
