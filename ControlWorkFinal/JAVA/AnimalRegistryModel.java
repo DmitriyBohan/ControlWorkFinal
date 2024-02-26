@@ -68,5 +68,8 @@ public class AnimalRegistryModel {
     public List<Animal> getAllAnimals() {
         return new ArrayList<>(animals);
     }
+    public int getTotalCount() {
+        return animals.size();
+    }
 
 }

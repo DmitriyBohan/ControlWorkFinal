@@ -224,6 +224,10 @@ public class AnimalRegistryController {
         }
     }
 
+    private void displayTotalCount() {
+        System.out.println("Общее количество животных: " + animalRegistryModel.getTotalCount());
+    }
+
     private void loadFromFile() {
         animalRegistryModel.loadFromFile("animal_registry.json");
     }
