@@ -171,6 +171,21 @@ public class AnimalRegistryController {
         saveToFile();
     }
 
+    private void listCommandsForAnimal(Scanner scanner) {
+        System.out.print("Введите имя животного: ");
+        String name = scanner.nextLine();
+        Animal animal = animalRegistryModel.findAnimalByName(name);
+
+        if (animal != null) {
+            System.out.println("Список команд для животного " + name + ":");
+            for (String command : animal.getCommands()) {
+                System.out.println(command);
+            }
+        } else {
+            System.out.println("Животное с именем " + name + " не найдено.");
+        }
+    }
+
     private void loadFromFile() {
         animalRegistryModel.loadFromFile("animal_registry.json");
     }

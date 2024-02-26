@@ -47,5 +47,14 @@ public class AnimalRegistryModel {
         System.out.println("Животное " + animal.getName() + " успешно добавлено в реестр.");
     }
 
+    public Animal findAnimalByName(String name) {
+        for (Animal animal : animals) {
+            if (animal.getName().equalsIgnoreCase(name)) {
+                return animal;
+            }
+        }
+        return null;
+    }
+
 
 }
