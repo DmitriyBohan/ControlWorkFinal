@@ -1,4 +1,7 @@
 package ControlWorkFinal.JAVA;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 import ControlWorkFinal.JAVA.animals.Animal;
 import ControlWorkFinal.JAVA.animals.packanimals.Camel;
@@ -199,6 +202,25 @@ public class AnimalRegistryController {
             saveToFile();
         } else {
             System.out.println("Животное с именем " + name + " не найдено.");
+        }
+    }
+
+    private void listAnimalsByBirthDate(Scanner scanner) {
+        List<Animal> allAnimals = animalRegistryModel.getAllAnimals();
+
+        if (allAnimals.isEmpty()) {
+            System.out.println("Реестр животных пуст.");
+            return;
+        }
+
+        Collections.sort(allAnimals, Comparator.comparing(animal -> {
+            String birthDate = animal.getBirthDate();
+            return (birthDate != null) ? birthDate : "";
+        }));
+
+        System.out.println("Список всех животных отсортированный по дате рождения:");
+        for (Animal animal : allAnimals) {
+            System.out.println("Имя: " + animal.getName() + ", Тип: " + animal.getType() + ", Дата рождения: " + animal.getBirthDate());
         }
     }
 

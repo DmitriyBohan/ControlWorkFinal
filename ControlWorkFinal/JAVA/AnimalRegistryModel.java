@@ -56,5 +56,17 @@ public class AnimalRegistryModel {
         return null;
     }
 
+    public List<Animal> getAnimalsByBirthDate(String birthDate) {
+        List<Animal> animalsByBirthDate = new ArrayList<>();
+        for (Animal animal : animals) {
+            if (animal.getBirthDate().equalsIgnoreCase(birthDate)) {
+                animalsByBirthDate.add(animal);
+            }
+        }
+        return animalsByBirthDate;
+    }
+    public List<Animal> getAllAnimals() {
+        return new ArrayList<>(animals);
+    }
 
 }
